@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/home.css">
+
+	<script src="./js/script.js" type="module"></script>
+
+	<title>FigoInstrumentos</title>
+</head>
+
+<body>
+	<header>
+		<div class="top-bar">
+			<span class="top-bar__live"><span class="top-bar__live--signal">•</span> Ao Vivo</span>
+			<span class="top-bar__date" id="date"></span>
+			<span class="top-bar__date" id="time"></span>
+			<button type="button" class="top-bar__theme-button" id="theme-toggle" aria-label="Ativar tema escuro" title="Alternar tema"></button>
+		</div>
+		<div>
+			<h1>Via Underground</h1>
+		</div>
+	</header>
+	<main>
+		<section>
+			<h2>Artigo em destaque</h2>
+			<!-- Artigo em destaque -->
+			<a href="">
+				<article href="" class="latest-article" id="latest-article">
+					<img class="latest-article__img">
+					<p class="latest-article__tag tag"></p>
+					<hgroup class="latest-article__hgroup">
+						<h2 class="latest-article__h2"></h2>
+						<p class="latest-article__info">Por
+							<strong class="latest-article__autor"></strong> |
+							<span class="latest-article__date"></span> |
+							<span class="latest-article__read-time"></span>
+							min de leitura
+						</p>
+					</hgroup>
+					<p class="latest-article__text"></p>
+				</article>
+			</a>
+		</section>
+
+		<!-- Seção de últimos artigos -->
+		<section>
+			<h2>Últimos Artigos</h2>
+			<menu class="filters" id="filters" aria-label="Filtrar artigos por categoria">
+				<li>
+					<button class="filters-tag is-active" type="button" data-category="all" aria-pressed="true">Todos</button>
+				</li>
+				<li>
+					<button class="filters-tag" type="button" data-category="1" aria-pressed="false">Tecnologia</button>
+				</li>
+				<li>
+					<button class="filters-tag" type="button" data-category="2" aria-pressed="false">Negócios</button>
+				</li>
+				<li>
+					<button class="filters-tag" type="button" data-category="3" aria-pressed="false">Ciência</button>
+				</li>
+				<li>
+					<button class="filters-tag" type="button" data-category="4" aria-pressed="false">Cultura</button>
+				</li>
+				<li>
+					<button class="filters-tag" type="button" data-category="5" aria-pressed="false">Opinião</button>
+				</li>
+			</menu>
+
+			<div id="article-grid"><!-- Vários cards de artigos aqui --></div>
+
+			<button type="button" id="load-more-button">Carregar mais</button>
+		</section>
+
+		<form class="newsletter-form">
+			<hgroup class="newsletter-form__hgroup">
+				<h3 class="newsletter-form__h3">Assine nossa newsletter!</h3>
+				<p class="newsletter-form__p">Toda sexta-feira um compilado das nossas publicações no seu e-mail. Sem spam.</p>
+			</hgroup>
+			<label class="newsletter-form__label" for="input-email"><input type="email" class="newsletter-form__input" id="input-email" placeholder="example@email.com"></label>
+			<button type="submit" class="newsletter-form__button">Assinar</button>
+		</form>
+	</main>
+
+	<footer>
+		<p class="copyright">© 2026. Via Underground. Todos os diretos reservados.</p>
+	</footer>
+</body>
+
+</html>
