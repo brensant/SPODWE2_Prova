@@ -10,78 +10,262 @@
 
 	<script src="./js/script.js" type="module"></script>
 
-	<title>Via Underground | Home</title>
+	<title>Strumenti Cari | Home</title>
 </head>
 
 <body>
 	<header>
 		<div class="top-bar">
-			<span class="top-bar__live"><span class="top-bar__live--signal">•</span> Ao Vivo</span>
-			<span class="top-bar__date" id="date"></span>
-			<span class="top-bar__date" id="time"></span>
-			<button type="button" class="top-bar__theme-button" id="theme-toggle" aria-label="Ativar tema escuro" title="Alternar tema"></button>
+			<button type="button" class="top-bar__theme-button" id="theme-toggle" aria-label="Ativar tema escuro"
+				title="Alternar tema"></button>
 		</div>
 		<div>
-			<h1>Via Underground</h1>
+			<h1>Strumenti Cari</h1>
 		</div>
 	</header>
 	<main>
+		<!-- Hero section -->
 		<section>
-			<h2>Artigo em destaque</h2>
-			<!-- Artigo em destaque -->
-			<a href="">
-				<article href="" class="latest-article" id="latest-article">
-					<img class="latest-article__img">
-					<p class="latest-article__tag tag"></p>
-					<hgroup class="latest-article__hgroup">
-						<h2 class="latest-article__h2"></h2>
-						<p class="latest-article__info">Por
-							<strong class="latest-article__autor"></strong> |
-							<span class="latest-article__date"></span> |
-							<span class="latest-article__read-time"></span>
-							min de leitura
-						</p>
-					</hgroup>
-					<p class="latest-article__text"></p>
-				</article>
-			</a>
+			<div id="hero" class="hero">
+				<hgroup class="hero__hgroup">
+					<h2 class="hero__h2">Conheça nossos produtos</h2>
+					<p class="hero__subtitle">Instrumentos de primeira classe, esculpidos para grandes mestres.</>
+				</hgroup>
+				<a href="#Loja" class="hero__button">Mostre-me</a>
+			</div>
 		</section>
 
-		<!-- Seção de últimos artigos -->
-		<section>
-			<h2>Últimos Artigos</h2>
+		<!-- Seção de Compras -->
+		<section id="Loja">
+			<h2>Nosso Catálogo</h2>
 			<menu class="filters" id="filters" aria-label="Filtrar artigos por categoria">
 				<li>
-					<button class="filters-tag is-active" type="button" data-category="all" aria-pressed="true">Todos</button>
+					<button class="filters-tag is-active" type="button" data-category="all"
+						aria-pressed="true">Todos</button>
 				</li>
 				<li>
-					<button class="filters-tag" type="button" data-category="1" aria-pressed="false">Tecnologia</button>
+					<button class="filters-tag" type="button" data-category="1" aria-pressed="false">Cordas</button>
 				</li>
 				<li>
-					<button class="filters-tag" type="button" data-category="2" aria-pressed="false">Negócios</button>
+					<button class="filters-tag" type="button" data-category="2" aria-pressed="false">Madeiras</button>
 				</li>
 				<li>
-					<button class="filters-tag" type="button" data-category="3" aria-pressed="false">Ciência</button>
+					<button class="filters-tag" type="button" data-category="3" aria-pressed="false">Metais</button>
 				</li>
 				<li>
-					<button class="filters-tag" type="button" data-category="4" aria-pressed="false">Cultura</button>
-				</li>
-				<li>
-					<button class="filters-tag" type="button" data-category="5" aria-pressed="false">Opinião</button>
+					<button class="filters-tag" type="button" data-category="4" aria-pressed="false">Acessórios</button>
 				</li>
 			</menu>
 
-			<div id="article-grid"><!-- Vários cards de artigos aqui --></div>
-
-			<button type="button" id="load-more-button">Carregar mais</button>
+			<div id="article-grid">
+				<!-- Vários cards de produtos aqui -->
+			</div>
 		</section>
 
-		<form class="newsletter-form">
+		<!-- Carrinho -->
+		<aside id="cart">
+			<div>
+				<div>
+					<div>
+						<h2>
+							Seu pedido
+						</h2>
+						<button id="clear-cart" type="button"
+							class="text-sm font-medium text-red-600 hover:text-red-800">
+							Limpar
+						</button>
+					</div>
+				</div>
+
+				<!-- Itens -->
+				<div id="cart-items">
+				</div>
+
+				<!-- Resumo -->
+				<div>
+					<div>
+						<div>
+							<span>
+								Subtotal
+							</span>
+							<span id="cart-subtotal">
+								R$ 0,00
+							</span>
+						</div>
+						<div>
+							<span>
+								Taxa de entrega
+							</span>
+							<span id="delivery-fee">
+								R$ 0,00
+							</span>
+						</div>
+						<div>
+							<div>
+								<span>
+									Total
+								</span>
+								<span id="cart-total">
+									R$ 0,00
+								</span>
+							</div>
+						</div>
+					</div>
+
+					<!-- Tipo de entrega -->
+					<fieldset>
+						<legend>
+							Tipo de pedido
+						</legend>
+						<div>
+							<label
+								class="flex cursor-pointer items-center gap-3 rounded-lg border p-3 transition hover:bg-gray-50">
+								<input type="radio" name="delivery-type" value="pickup" checked>
+								<span>
+									<span>
+										Retirada
+									</span>
+									<span>
+										Retirar no restaurante
+									</span>
+								</span>
+							</label>
+							<label
+								class="flex cursor-pointer items-center gap-3 rounded-lg border p-3 transition hover:bg-gray-50">
+								<input type="radio" name="delivery-type" value="delivery">
+								<span>
+									<span>
+										Delivery
+									</span>
+									<span>
+										Taxa de R$ 2,50
+									</span>
+								</span>
+							</label>
+						</div>
+					</fieldset>
+
+					<!-- Dados do cliente -->
+					<fieldset>
+						<legend>
+							Dados do cliente
+						</legend>					<div id="empty-cart">
+						<p>
+							Seu carrinho está vazio.
+						</p>
+						<p>
+							Adicione produtos do cardápio para começar.
+						</p>
+					</div>
+				</div>
+
+				<!-- Resumo -->
+				<div>
+					<div>
+						<div>
+							<span>
+								Subtotal
+							</span>
+							<span id="cart-subtotal">
+								R$ 0,00
+							</span>
+						</div>
+						<div>
+							<span>
+								Taxa de entrega
+							</span>
+							<span id="delivery-fee">
+								R$ 0,00
+							</span>
+						</div>
+						<div>
+							<div>
+								<span>
+									Total
+								</span>
+								<span id="cart-total">
+									R$ 0,00
+								</span>
+							</div>
+						</div>
+					</div>
+
+					<!-- Tipo de entrega -->
+					<fieldset>
+						<legend>
+							Tipo de pedido
+						</legend>
+						<div>
+							<label
+								class="flex cursor-pointer items-center gap-3 rounded-lg border p-3 transition hover:bg-gray-50">
+								<input type="radio" name="delivery-type" value="pickup" checked>
+								<span>
+									<span>
+										Retirada
+									</span>
+									<span>
+										Retirar no restaurante
+									</span>
+								</span>
+							</label>
+							<label
+								class="flex cursor-pointer items-center gap-3 rounded-lg border p-3 transition hover:bg-gray-50">
+								<input type="radio" name="delivery-type" value="delivery">
+								<span>
+									<span>
+										Delivery
+									</span>
+									<span>
+										Taxa de R$ 2,50
+									</span>
+								</span>
+							</label>
+						</div>
+					</fieldset>
+
+					<!-- Dados do cliente -->
+					<fieldset>
+						<legend>
+							Dados do cliente
+						</legend>
+						<div>
+							<label for="customer-name">
+								Nome
+							</label>
+							<input id="customer-name" name="customer-name" type="text" autocomplete="name" required
+								class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm outline-none transition focus:border-gray-900 focus:ring-2 focus:ring-gray-200"
+								placeholder="Seu nome">
+						</div>
+						<div>
+							<label for="customer-phone">
+								Telefone
+							</label>
+							<input id="customer-phone" name="customer-phone" type="tel" autocomplete="tel"
+								class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm outline-none transition focus:border-gray-900 focus:ring-2 focus:ring-gray-200"
+								placeholder="(00) 00000-0000">
+						</div>
+					</fieldset>
+
+					<button id="finish-order" type="button" disabled
+						class="mt-6 w-full rounded-lg bg-gray-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-40">
+						Finalizar pedido
+					</button>
+
+					<div id="order-success"
+						class="mt-4 hidden rounded-lg border border-green-200 bg-green-50 p-4 text-sm text-green-800">
+					</div>
+				</div>
+			</div>
+		</aside>
+
+		<form>
 			<hgroup class="newsletter-form__hgroup">
 				<h3 class="newsletter-form__h3">Assine nossa newsletter!</h3>
-				<p class="newsletter-form__p">Toda sexta-feira um compilado das nossas publicações no seu e-mail. Sem spam.</p>
+				<p class="newsletter-form__p">Toda sexta-feira um compilado das nossas publicações no seu e-mail. Sem
+					spam.</p>
 			</hgroup>
-			<label class="newsletter-form__label" for="input-email"><input type="email" class="newsletter-form__input" id="input-email" placeholder="example@email.com"></label>
+			<label class="newsletter-form__label" for="input-email"><input type="email" class="newsletter-form__input"
+					id="input-email" placeholder="example@email.com"></label>
 			<button type="submit" class="newsletter-form__button">Assinar</button>
 		</form>
 	</main>

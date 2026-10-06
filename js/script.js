@@ -1,70 +1,82 @@
-import { artigos as articles, categorias, categorias as tags } from "./artigos.js";
+import { produtos, categorias as tags } from "./produtos.js";
+import { ShoppingCart } from "./ShoppingCart.js";
 
-const latestArticle = document.getElementById("latest-article");
 const articleGrid = document.getElementById("article-grid");
 const filters = document.getElementById("filters");
 const themeToggle = document.getElementById("theme-toggle");
 
+const cart = new ShoppingCart();
+
 let selectedTag = "all";
 
 document.addEventListener("DOMContentLoaded", () => {
-	fillLatestArticle();
-	fillArticleGrid();
+	fillProductGrid();
 	setupFilters();
 	setupTheme();
-	updateDateTime();
-	setInterval(updateDateTime, 1000);
+	fillOrder();
 });
 
-function fillLatestArticle() {
-	const la = latestArticle;
-
-	const articleImg = la.querySelector(".latest-article__img");
-	const articleTag = la.querySelector(".latest-article__tag");
-	const articleTitle = la.querySelector(".latest-article__h2");
-	const articleAutor = la.querySelector(".latest-article__autor");
-	const articleDate = la.querySelector(".latest-article__date");
-	const articleReadTime = la.querySelector(".latest-article__read-time");
-	const articleText = la.querySelector(".latest-article__text");
-
-	const data = articles[0];
-
-	articleImg.src = data.img_url;
-	articleImg.alt = data.img_alt;
-	articleTag.textContent = getTagName(data.categoria);
-	articleTag.classList.add(`tag-${getTagSymbol(data.categoria)}`)
-	articleTitle.textContent = data.titulo;
-	articleAutor.textContent = data.autor;
-	articleDate.textContent = data.data;
-	articleReadTime.textContent = data.tempo_leitura;
-	articleText.textContent = data.lide;
-}
-
-function fillArticleGrid() {
-	articles.forEach((article) => {
-		articleGrid.append(createArticleCard(article));
+function fillProductGrid() {
+	produtos.forEach((product) => {
+		articleGrid.append(createProductCard(product));
 	});
 }
 
-function createArticleCard(data) {
-	const newArticleCard = document.createElement("a");
+function fillOrder() {
+	const cartItems = document.getElementById("cart-items");
+	cartItems.innerHTML = "";
 
-	newArticleCard.href = "";
-	newArticleCard.classList.add("article-card");
-	newArticleCard.dataset.category = data.categoria;
-	newArticleCard.innerHTML = `
+	const savedItems = cart.getItems();
+
+	if (savedItems.length == 0) {
+		cartItems.innerHTML = `
+			<div id="empty-cart">
+				<p>
+					Seu carrinho está vazio.
+				</p>
+				<p>
+					Adicione produtos do cardápio para começar.
+				</p>
+			</div>
+		`;
+	}
+	else {
+		savedItems.forEach((item) => {
+			const newItem = document.createElement("div");
+
+			newItem.innerHTML = `
+				<div class="order-item">
+					<p>Produto: ${item.nome}</p> <span>Quantidade: ${item.quantidade}</span>
+				</div>
+			`;
+
+			cartItems.appendChild(newItem);
+		});
+	}
+}
+
+function createProductCard(data) {
+	const newProductCard = document.createElement("article");
+
+	newProductCard.classList.add("article-card");
+	newProductCard.dataset.category = data.categoria;
+	newProductCard.innerHTML = `
 		<img class="article-card__img" src="${data.img_url}" alt="${data.img_alt}">
+		<p class="article-card__title">${data.nome}</h2>
 		<p class="article-card__tag tag tag-${getTagSymbol(data.categoria)}">${getTagName(data.categoria)}</p>
-		<h2 class="article-card__h2">${data.titulo}</h2>
-		<p class="article-card__info">Por
-			<strong class="article-card__autor">${data.autor}</strong> |
-			<span class="article-card__date">${data.data}</span> |
-			<span class="article-card__read-time">${data.tempo_leitura}</span>
-			min de leitura
-		</p>
+		<div class="article-card__rating">
+			<span class="article-card__rating--active">${"*".repeat(data.avaliacao)}</span><span class="article-card__rating--inactive">${"*".repeat(5 - data.avaliacao)}</span> ${data.avaliacao}</div>
+		<p class="article-card__price">R$ ${data.preco.toFixed(2)}</p>
+		<button class="article-card__button">Adicionar</button>
 	`;
 
-	return (newArticleCard);
+	const button = newProductCard.querySelector(".article-card__button");
+	button.addEventListener("click", () => {
+		cart.addItem(data);
+		fillOrder();
+	});
+
+	return (newProductCard);
 }
 
 function getTagName(tagNumber) {
@@ -109,29 +121,6 @@ function filterArticles() {
 
 		card.hidden = !doesMatchCategory;
 	});
-}
-
-function updateDateTime() {
-	const now = new Date();
-
-	const dateElement = document.getElementById("date");
-	const timeElement = document.getElementById("time");
-
-	const dateFormatter = new Intl.DateTimeFormat("pt-BR", {
-		day: "2-digit",
-		month: "short",
-		year: "numeric"
-	});
-
-	const timeFormatter = new Intl.DateTimeFormat("pt-BR", {
-		hour: "2-digit",
-		minute: "2-digit",
-		second: "2-digit",
-		hour12: false
-	});
-
-	dateElement.textContent = dateFormatter.format(now);
-	timeElement.textContent = timeFormatter.format(now);
 }
 
 function setupTheme() {

@@ -8,14 +8,14 @@
 	color-scheme: light;
 
 	/* Cores básicas */
-	--paper: #FFFFFF /* Fundo da página  */
-	--ink: #181A2A /* Texto principal e identidade da marca  */
-	--slate: #6B7280 /* Texto secundário (descrições, metadados)  */
-	--mist: #F3F4F6 /* Superfícies suaves (cards, campos)  */
-	--line: #E5E7EB /* Linhas e bordas  */
-	--accent: #6D28D9 /* Marca, botões de ação e destaques  */
-	--price: #059669 /* Preços e selos de oferta  */
-	--star: #F59E0B /* Estrelas de avaliação */
+	--paper: #FFFFFF; /* Fundo da página  */
+	--ink: #181A2A; /* Texto principal e identidade da marca  */
+	--slate: #6B7280; /* Texto secundário (descrições, metadados)  */
+	--mist: #F3F4F6; /* Superfícies suaves (cards, campos)  */
+	--line: #E5E7EB; /* Linhas e bordas  */
+	--accent: #6D28D9; /* Marca, botões de ação e destaques  */
+	--price: #059669; /* Preços e selos de oferta  */
+	--star: #F59E0B; /* Estrelas de avaliação */
 
 	/* Cores temáticas */
 	--cordas: #6D28D9;
@@ -38,6 +38,7 @@
 	--size-2: 2rem;
 	--size-5_2: 2.5rem;
 	--size-3: 3rem;
+	--size-4: 4rem;
 
 	/* Z-index */
 	--zindex-closest: 100;
@@ -51,12 +52,14 @@
 :root[data-theme="dark"] {
 	color-scheme: dark;
 
-	--paper: #15171C;
-	--ink: #F5F6F8;
-	--slate: #A6AFBC;
-	--mist: #292D35;
-	--line: #383E49;
-	--signal: #E5372A;
+	--paper: #181A2A; /* Fundo da página  */
+	--ink: #FFFFFF; /* Texto principal e identidade da marca  */
+	--slate: #AAAAAA; /* Texto secundário (descrições, metadados)  */
+	--mist: #F3F4F6; /* Superfícies suaves (cards, campos)  */
+	--line: #E5E7EB; /* Linhas e bordas  */
+	--accent: #6D28D9; /* Marca, botões de ação e destaques  */
+	--price: #059669; /* Preços e selos de oferta  */
+	--star: #F59E0B; /* Estrelas de avaliação */
 }
 
 .tag {
@@ -64,24 +67,20 @@
 	font-family: var(--highlight);
 }
 
-.tag-tecnologia {
-	background-color: var(--theme-tecnologia);
+.tag-cordas {
+	background-color: var(--cordas);
 }
 
-.tag-cultura {
-	background-color: var(--theme-cultura);
+.tag-madeiras {
+	background-color: var(--madeiras);
 }
 
-.tag-ciencia {
-	background-color: var(--theme-ciencia);
+.tag-metais {
+	background-color: var(--metais);
 }
 
-.tag-negocios {
-	background-color: var(--theme-negocios);
-}
-
-.tag-opiniao {
-	background-color: var(--theme-opiniao);
+.tag-acessorios {
+	background-color: var(--acessorios);
 }
 
 html {
@@ -103,6 +102,10 @@ a {
 
 h1, h2, h3 {
 	font-family: var(--highlight);
+}
+
+section {
+	border-bottom: 2px solid var(--line);
 }
 
 section > h2 {
@@ -129,12 +132,40 @@ main {
 	flex-direction: column;
 	gap: var(--size-1);
 	padding: var(--size-1);
-	max-width: 1080px;
+	max-width: 1280px;
 	margin: 0 auto;
 }
 
-section {
-	border-bottom: 2px solid var(--line);
+.hero {
+	display: flex;
+	gap: var(--size-2);
+	flex-wrap: wrap;
+	align-items: end;
+	justify-content: start;
+
+	min-height: 30vh;
+	font-family: var(--highlight);
+	color: white;
+	padding: var(--size-1);
+	background-image: linear-gradient(#000, var(--accent));
+}
+
+.hero__h2 {
+	margin-top: var(--size-4);
+	font-size: var(--size-2);
+	stroke-width: 1px;
+	text-shadow: 0px 2px 2px red;
+}
+
+.hero__subtitle {
+	color: var(--line);
+}
+
+.hero__button {
+	padding: var(--size-1);
+	background-color: black;
+	height: fit-content;
+	border-radius: var(--size-1);
 }
 
 h1 {
@@ -315,28 +346,62 @@ h1 {
 		border-radius: var(--size-1_2) ;
 	}
 
+	.article-card__title {
+		flex-grow: 1;
+		font-size: var(--size-3_2);
+		font-weight: bold;
+	}
+
 	.article-card__tag {
+		width: fit-content;
 		padding: var(--size-1_4);
 		border-radius: var(--size-1_4);
 	}
 
-	.article-card__h2 {
-		flex-grow: 1;
+	.article-card__price {
+		font-size: var(--size-3_2);
+		font-weight: bold;
 	}
 
-	.article-card__info {
-		font-size: var(--size-3_4);
-		color: var(--slate);
+	.article-card__rating--active {
+		color: yellow;
+		text-shadow: 0px 0px 2px black;
+	}
+
+	.article-card__rating--inactive {
+		color: white;
+		text-shadow: 0px 0px 2px black;
+	}
+
+	.article-card__button {
+		font-size: var(--size-1);
+		border-radius: var(--size-3_4);
+		color: white;
+		background-color: var(--accent);
+		padding: var(--size-1);
+		cursor: pointer;
+	}
+
+	.article-card__button:hover {
+		transform: translateY(-2px);
+		color: white;
+		background-color: black;
+		padding: var(--size-1);
+		cursor: pointer;
+
+		transition: background-color 500ms;
+		transition: transform 250ms;
+
 	}
 }
 
-.article-card:hover,
-.article-card:focus {
-	cursor: pointer;
+aside {
+	border-bottom: 1px solid black;
+}
 
-	.article-card__h2 {
-		text-decoration: underline;
-	}
+.order-item {
+	margin: var(--size-1_2) 0;
+	border-bottom: 1px solid var(--line);
 }
 
 #load-more-button {
