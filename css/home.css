@@ -85,6 +85,11 @@
 	background-color: var(--acessorios);
 }
 
+.container {
+	max-width: var(--max-width);
+	margin: 0 auto;
+}
+
 html {
 	background-color: var(--paper);
 	color: var(--ink);
@@ -116,6 +121,11 @@ button {
 	padding: var(--size-1_2);
 }
 
+input {
+	border: 1px solid var(--slate);
+	border-radius: var(--size-1_2);
+}
+
 button {
 	cursor: pointer;
 }
@@ -133,8 +143,6 @@ main {
     padding: var(--size-1);
 
     width: 100%;
-    max-width: var(--max-width);
-	margin: 0 auto;
 }
 
 #Hero {
@@ -148,8 +156,6 @@ main {
 	align-items: end;
 	justify-content: space-between;
 
-	max-width: var(--max-width);
-	margin: 0 auto;
 	min-height: 400px;
 	font-family: var(--highlight);
 	color: white;
@@ -228,47 +234,10 @@ h1 {
 	}
 }
 
-.latest-article {
-	border-radius: var(--size-1_2);
-	margin: var(--size-1) 0;
-	cursor: pointer;
-
-	.latest-article__img {
-		width: 100%;
-		border-radius: var(--size-1_2);
-	}
-
-	.latest-article__tag {
-		width: fit-content;
-		border-radius: var(--size-1_2);
-		padding: var(--size-1_2);
-		margin: var(--size-1_2) 0;
-	}
-
-	.latest-article__hgroup {
-		margin-bottom: var(--size-1_2);
-	}
-
-	.latest-article__h2 {
-		font-size: var(--size-2);
-	}
-
-	.latest-article__info {
-		font-size: var(--size-3_4);
-		color: var(--slate);
-	}
-
-	.latest-article__text {
-		text-align: justify;
-		color: var(--slate);
-	}
-}
-
-.latest-article:hover,
-.latest-article:focus {
-	.latest-article__h2 {
-		text-decoration: underline;
-	}
+#filter-strip {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 #filters {
@@ -294,23 +263,19 @@ h1 {
 }
 
 .filters-tag[data-category="1"] {
-	--filter-color: var(--theme-tecnologia);
+	--filter-color: var(--cordas);
 }
 
 .filters-tag[data-category="2"] {
-	--filter-color: var(--theme-negocios);
+	--filter-color: var(--madeiras);
 }
 
 .filters-tag[data-category="3"] {
-	--filter-color: var(--theme-ciencia);
+	--filter-color: var(--metais);
 }
 
 .filters-tag[data-category="4"] {
-	--filter-color: var(--theme-cultura);
-}
-
-.filters-tag[data-category="5"] {
-	--filter-color: var(--theme-opiniao);
+	--filter-color: var(--acessorios);
 }
 
 .filters-tag.is-active {

@@ -16,10 +16,6 @@
 <body>
 	<header>
 		<div class="top-bar">
-			<div class="top-bar__search">
-				<input type="text" name="Buscar" id="buscar" class="top-bar__search-input" placeholder="Pesquisar">
-				<button type="button" class="top-bar__search-button">Buscar</button>
-			</div>
 			<button type="button" class="top-bar__theme-button" id="theme-toggle" aria-label="Ativar tema escuro"
 				title="Alternar tema"></button>
 		</div>
@@ -28,37 +24,43 @@
 
 	<!-- Hero section -->
 	<section id="Hero">
-		<div class="hero">
+		<div class="hero container">
 			<hgroup class="hero__hgroup">
 				<h2 class="hero__h2">Conheça nossos produtos</h2>
-				<p class="hero__subtitle">Instrumentos de primeira classe, esculpidos para grandes mestres.</>
+				<p class="hero__subtitle">Instrumentos de primeira classe, esculpidos para grandes mestres.</p>
 			</hgroup>
 			<a href="#Loja" class="hero__button">Mostre-me</a>
 		</div>
 	</section>
-	<main>
 
+	<main class="container">
 		<!-- Seção de Compras -->
 		<section id="Loja">
 			<h2>Nosso Catálogo</h2>
-			<menu class="filters" id="filters" aria-label="Filtrar artigos por categoria">
-				<li>
-					<button class="filters-tag is-active" type="button" data-category="all"
-						aria-pressed="true">Todos</button>
-				</li>
-				<li>
-					<button class="filters-tag" type="button" data-category="1" aria-pressed="false">Cordas</button>
-				</li>
-				<li>
-					<button class="filters-tag" type="button" data-category="2" aria-pressed="false">Madeiras</button>
-				</li>
-				<li>
-					<button class="filters-tag" type="button" data-category="3" aria-pressed="false">Metais</button>
-				</li>
-				<li>
-					<button class="filters-tag" type="button" data-category="4" aria-pressed="false">Acessórios</button>
-				</li>
-			</menu>
+			<div id="filter-strip">
+				<menu class="filters" id="filters" aria-label="Filtrar artigos por categoria">
+					<li>
+						<button class="filters-tag is-active" type="button" data-category="all"
+							aria-pressed="true">Todos</button>
+					</li>
+					<li>
+						<button class="filters-tag" type="button" data-category="1" aria-pressed="false">Cordas</button>
+					</li>
+					<li>
+						<button class="filters-tag" type="button" data-category="2" aria-pressed="false">Madeiras</button>
+					</li>
+					<li>
+						<button class="filters-tag" type="button" data-category="3" aria-pressed="false">Metais</button>
+					</li>
+					<li>
+						<button class="filters-tag" type="button" data-category="4" aria-pressed="false">Acessórios</button>
+					</li>
+				</menu>
+				<div class="top-bar__search">
+					<input type="text" name="Buscar" id="buscar" class="top-bar__search-input" placeholder="Pesquisar">
+					<button type="button" class="top-bar__search-button">Buscar</button>
+				</div>
+			</div>
 
 			<div id="article-grid">
 				<!-- Vários cards de produtos aqui -->
@@ -82,84 +84,6 @@
 
 				<!-- Itens -->
 				<div id="cart-items">
-				</div>
-
-				<!-- Resumo -->
-				<div>
-					<div>
-						<div>
-							<span>
-								Subtotal
-							</span>
-							<span id="cart-subtotal">
-								R$ 0,00
-							</span>
-						</div>
-						<div>
-							<span>
-								Taxa de entrega
-							</span>
-							<span id="delivery-fee">
-								R$ 0,00
-							</span>
-						</div>
-						<div>
-							<div>
-								<span>
-									Total
-								</span>
-								<span id="cart-total">
-									R$ 0,00
-								</span>
-							</div>
-						</div>
-					</div>
-
-					<!-- Tipo de entrega -->
-					<fieldset>
-						<legend>
-							Tipo de pedido
-						</legend>
-						<div>
-							<label
-								class="flex cursor-pointer items-center gap-3 rounded-lg border p-3 transition hover:bg-gray-50">
-								<input type="radio" name="delivery-type" value="pickup" checked>
-								<span>
-									<span>
-										Retirada
-									</span>
-									<span>
-										Retirar no restaurante
-									</span>
-								</span>
-							</label>
-							<label
-								class="flex cursor-pointer items-center gap-3 rounded-lg border p-3 transition hover:bg-gray-50">
-								<input type="radio" name="delivery-type" value="delivery">
-								<span>
-									<span>
-										Delivery
-									</span>
-									<span>
-										Taxa de R$ 2,50
-									</span>
-								</span>
-							</label>
-						</div>
-					</fieldset>
-
-					<!-- Dados do cliente -->
-					<fieldset>
-						<legend>
-							Dados do cliente
-						</legend>					<div id="empty-cart">
-						<p>
-							Seu carrinho está vazio.
-						</p>
-						<p>
-							Adicione produtos do cardápio para começar.
-						</p>
-					</div>
 				</div>
 
 				<!-- Resumo -->
@@ -262,14 +186,15 @@
 		</aside>
 
 		<section>
-			<form>
+			<form class="newsletter-form">
 				<hgroup class="newsletter-form__hgroup">
 					<h3 class="newsletter-form__h3">Assine nossa newsletter!</h3>
-					<p class="newsletter-form__p">Toda sexta-feira um compilado das nossas publicações no seu e-mail. Sem
+					<p class="newsletter-form__p">Toda sexta-feira um compilado das nossas publicações no seu e-mail.
+						Sem
 						spam.</p>
 				</hgroup>
-				<label class="newsletter-form__label" for="input-email"><input type="email" class="newsletter-form__input"
-						id="input-email" placeholder="example@email.com"></label>
+				<label class="newsletter-form__label" for="input-email"><input type="email"
+						class="newsletter-form__input" id="input-email" placeholder="example@email.com"></label>
 				<button type="submit" class="newsletter-form__button">Assinar</button>
 			</form>
 		</section>

@@ -51,7 +51,7 @@ const produtos = [
 		categoria: 2,
 		preco: 999.99,
 		avaliacao: 5,
-		img_url: "https://picsum.photos/seed/1/400/300",
+		img_url: "https://picsum.photos/seed/4/400/300",
 		img_alt: "Fagote",
 	},
 	{
@@ -60,7 +60,7 @@ const produtos = [
 		categoria: 1,
 		preco: 999.99,
 		avaliacao: 5,
-		img_url: "https://picsum.photos/seed/1/400/300",
+		img_url: "https://picsum.photos/seed/5/400/300",
 		img_alt: "Violino",
 	},
 	{
@@ -69,7 +69,7 @@ const produtos = [
 		categoria: 1,
 		preco: 999.99,
 		avaliacao: 5,
-		img_url: "https://picsum.photos/seed/1/400/300",
+		img_url: "https://picsum.photos/seed/6/400/300",
 		img_alt: "Contrabaixo",
 	},
 	{
@@ -78,7 +78,7 @@ const produtos = [
 		categoria: 4,
 		preco: 999.99,
 		avaliacao: 5,
-		img_url: "https://picsum.photos/seed/1/400/300",
+		img_url: "https://picsum.photos/seed/7/400/300",
 		img_alt: "Arco de Pau-Brasil",
 	},
 	{
@@ -87,7 +87,7 @@ const produtos = [
 		categoria: 4,
 		preco: 999.99,
 		avaliacao: 3,
-		img_url: "https://picsum.photos/seed/1/400/300",
+		img_url: "https://picsum.photos/seed/8/400/300",
 		img_alt: "Afinador Eletroacústico",
 	},
 ]
