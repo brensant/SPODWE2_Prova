@@ -46,6 +46,8 @@
 	--zindex-neutral: 0;
 	--zindex-far: -50;
 	--zindex-farthest: -100;
+
+	--max-width: 1280px;
 }
 
 /* Tema escuro */
@@ -104,10 +106,6 @@ h1, h2, h3 {
 	font-family: var(--highlight);
 }
 
-section {
-	border-bottom: 2px solid var(--line);
-}
-
 section > h2 {
 	font-family: var(--sans-serif);
 }
@@ -115,6 +113,7 @@ section > h2 {
 input,
 button {
 	font-family: var(--sans-serif);
+	padding: var(--size-1_2);
 }
 
 button {
@@ -127,13 +126,19 @@ header {
 }
 
 main {
-	flex-grow: 1;
-	display: flex;
-	flex-direction: column;
-	gap: var(--size-1);
-	padding: var(--size-1);
-	max-width: 1280px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-1);
+    padding: var(--size-1);
+
+    width: 100%;
+    max-width: var(--max-width);
 	margin: 0 auto;
+}
+
+#Hero {
+	background-image: linear-gradient(var(--paper), var(--accent));
 }
 
 .hero {
@@ -141,17 +146,17 @@ main {
 	gap: var(--size-2);
 	flex-wrap: wrap;
 	align-items: end;
-	justify-content: start;
+	justify-content: space-between;
 
-	min-height: 30vh;
+	max-width: var(--max-width);
+	margin: 0 auto;
+	min-height: 400px;
 	font-family: var(--highlight);
 	color: white;
 	padding: var(--size-1);
-	background-image: linear-gradient(#000, var(--accent));
 }
 
 .hero__h2 {
-	margin-top: var(--size-4);
 	font-size: var(--size-2);
 	stroke-width: 1px;
 	text-shadow: 0px 2px 2px red;
@@ -325,7 +330,7 @@ h1 {
 
 #article-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(280px, 400px));
 	gap: var(--size-1);
 	margin: var(--size-1) 0;
 }
@@ -335,6 +340,7 @@ h1 {
 }
 
 .article-card {
+	min-width: 300px;
 	display: flex;
 	flex-direction: column;
 	gap: var(--size-1_2);

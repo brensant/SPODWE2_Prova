@@ -16,24 +16,27 @@
 <body>
 	<header>
 		<div class="top-bar">
+			<div class="top-bar__search">
+				<input type="text" name="Buscar" id="buscar" class="top-bar__search-input" placeholder="Pesquisar">
+				<button type="button" class="top-bar__search-button">Buscar</button>
+			</div>
 			<button type="button" class="top-bar__theme-button" id="theme-toggle" aria-label="Ativar tema escuro"
 				title="Alternar tema"></button>
 		</div>
-		<div>
-			<h1>Strumenti Cari</h1>
-		</div>
+		<h1>Strumenti Cari</h1>
 	</header>
+
+	<!-- Hero section -->
+	<section id="Hero">
+		<div class="hero">
+			<hgroup class="hero__hgroup">
+				<h2 class="hero__h2">Conheça nossos produtos</h2>
+				<p class="hero__subtitle">Instrumentos de primeira classe, esculpidos para grandes mestres.</>
+			</hgroup>
+			<a href="#Loja" class="hero__button">Mostre-me</a>
+		</div>
+	</section>
 	<main>
-		<!-- Hero section -->
-		<section>
-			<div id="hero" class="hero">
-				<hgroup class="hero__hgroup">
-					<h2 class="hero__h2">Conheça nossos produtos</h2>
-					<p class="hero__subtitle">Instrumentos de primeira classe, esculpidos para grandes mestres.</>
-				</hgroup>
-				<a href="#Loja" class="hero__button">Mostre-me</a>
-			</div>
-		</section>
 
 		<!-- Seção de Compras -->
 		<section id="Loja">
@@ -258,16 +261,18 @@
 			</div>
 		</aside>
 
-		<form>
-			<hgroup class="newsletter-form__hgroup">
-				<h3 class="newsletter-form__h3">Assine nossa newsletter!</h3>
-				<p class="newsletter-form__p">Toda sexta-feira um compilado das nossas publicações no seu e-mail. Sem
-					spam.</p>
-			</hgroup>
-			<label class="newsletter-form__label" for="input-email"><input type="email" class="newsletter-form__input"
-					id="input-email" placeholder="example@email.com"></label>
-			<button type="submit" class="newsletter-form__button">Assinar</button>
-		</form>
+		<section>
+			<form>
+				<hgroup class="newsletter-form__hgroup">
+					<h3 class="newsletter-form__h3">Assine nossa newsletter!</h3>
+					<p class="newsletter-form__p">Toda sexta-feira um compilado das nossas publicações no seu e-mail. Sem
+						spam.</p>
+				</hgroup>
+				<label class="newsletter-form__label" for="input-email"><input type="email" class="newsletter-form__input"
+						id="input-email" placeholder="example@email.com"></label>
+				<button type="submit" class="newsletter-form__button">Assinar</button>
+			</form>
+		</section>
 	</main>
 
 	<footer>
